@@ -13,11 +13,18 @@ class NFTService {
     return tokenMetadata;
   }
   async searchNftData(chain = "eth", query = "Pancake", otherOptions = {}) {
-    const options = { q: query, chain: "bsc", filter: "name", ...otherOptions };
+    const options = { q: query, chain: "bsc",order:"desc", filter: "name", ...otherOptions };
     console.log("🎩", options);
     const NFTs = await Moralis.Web3API.token.searchNFTs(options);
     return NFTs;
   }
+  // async AllNewNftData() {
+  //   const options = { chain: 'eth', address: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266' };
+  //   console.log("🎩", options);
+  //   const polygonNFTs = await Moralis.Web3API.account.getNFTs(options);
+    
+  //   return AllNewNFTs;
+  // }
 }
 
 export default new NFTService();

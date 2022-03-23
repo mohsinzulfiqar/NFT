@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Particle from "../components/Particle";
 import SliderMainParticle from "../components/SliderMainParticle";
 import FeatureBox from "../components/FeatureBox";
@@ -137,6 +137,28 @@ const Homeone = () => {
       limit: 12,
     })
   );
+  const availabelProviders = {
+    metaMask: {},
+    elrond: { type: "erd" },
+    walletconnect: { provider: "walletconnect" },
+  };
+  const { authenticate, isAuthenticated, user } = useMoralis();
+
+  const [loading, setLoading] = useState(false);
+
+  const handleAuthenticate = async (provider) => {
+    console.log(provider);
+    setLoading(true);
+    // if (!isAuthenticated) {
+    try {
+      await authenticate(availabelProviders[provider]);
+    } catch (error) {
+      console.log(error);
+    }
+
+    // }
+    setLoading(false);
+  };
 
   return (
     <div>
@@ -150,48 +172,48 @@ const Homeone = () => {
       </section>
 
       <section className="container no-bottom">
-        <div className="row">
-          <div className="col-lg-2 col-sm-4 col-6 mb30">
+        <div className="row d-flex justify-content-center">
+          <div className="col-lg-2 col-sm-4 col-6 mb30" onClick={() => handleAuthenticate(availabelProviders.metaMask)}>
             <span className="box-url">
               <img src="./img/wallet/1.png" alt="" className="mb20" />
               <h4>Metamask</h4>
             </span>
           </div>
 
-          <div className="col-lg-2 col-sm-4 col-6 mb30">
+          {/* <div className="col-lg-2 col-sm-4 col-6 mb30">
             <span className="box-url">
               <img src="./img/wallet/2.png" alt="" className="mb20" />
               <h4>Bitski</h4>
             </span>
-          </div>
+          </div> */}
 
-          <div className="col-lg-2 col-sm-4 col-6 mb30">
+          {/* <div className="col-lg-2 col-sm-4 col-6 mb30">
             <span className="box-url">
               <img src="./img/wallet/3.png" alt="" className="mb20" />
               <h4>Fortmatic</h4>
             </span>
-          </div>
+          </div> */}
 
-          <div className="col-lg-2 col-sm-4 col-6 mb30">
+          <div className="col-lg-2 col-sm-4 col-6 mb30" onClick={() => handleAuthenticate(availabelProviders.metaMask)}>
             <span className="box-url">
               <img src="./img/wallet/4.png" alt="" className="mb20" />
               <h4>WalletConnect</h4>
             </span>
           </div>
 
-          <div className="col-lg-2 col-sm-4 col-6 mb30">
+          {/* <div className="col-lg-2 col-sm-4 col-6 mb30">
             <span className="box-url">
               <img src="./img/wallet/5.png" alt="" className="mb20" />
               <h4>Coinbase Wallet</h4>
             </span>
-          </div>
+          </div> */}
 
-          <div className="col-lg-2 col-sm-4 col-6 mb30">
+          {/* <div className="col-lg-2 col-sm-4 col-6 mb30">
             <span className="box-url">
               <img src="./img/wallet/6.png" alt="" className="mb20" />
               <h4>Arkane</h4>
             </span>
-          </div>
+          </div> */}
         </div>
       </section>
 

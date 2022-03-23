@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import Reveal from 'react-awesome-reveal';
 import { keyframes } from "@emotion/react";
+import CountUp  from 'react-countup';
 
 const fadeInUp = keyframes`
   0% {
@@ -52,21 +53,27 @@ const slidermainparticle= () => (
                   <div className="row">
                           <div className="col-lg-4 col-md-6 col-sm-4 mb30">
                               <div className="de_count text-left">
-                                  <h3><span>94215</span></h3>
+                                  <h3><span>
+                                    <CountUp start={0} end={435}  duration={6} suffix='k' />
+                                    </span></h3>
                                   <h5 className="id-color">Collectibles</h5>
                               </div>
                           </div>
 
                           <div className="col-lg-4 col-md-6 col-sm-4 mb30">
                               <div className="de_count text-left">
-                                  <h3><span>27</span>k</h3>
+                                  <h3><span>
+                                  <CountUp start={0} end={150}  duration={3} />
+                                    </span>k</h3>
                                   <h5 className="id-color">Auctions</h5>
                               </div>
                           </div>
 
                           <div className="col-lg-4 col-md-6 col-sm-4 mb30">
                               <div className="de_count text-left">
-                                  <h3><span>4</span>k</h3>
+                                  <h3><span>
+                                  <CountUp start={0} end={30}  duration={6} />
+                                    </span>k</h3>
                                   <h5 className="id-color">NFT Artist</h5>
                               </div>
                           </div>
@@ -82,4 +89,5 @@ const slidermainparticle= () => (
       </div>
     </div>
 );
+
 export default slidermainparticle;

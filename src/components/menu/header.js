@@ -149,7 +149,7 @@ const Header= function() {
                   {showmenu && 
                   <div className='menu'>
                     <div className='navbar-item'>
-                      <div ref={ref}>
+                      {/* <div ref={ref}>
                         <div className="dropdown-custom dropdown-toggle btn" 
                           onClick={handleBtnClick}
                           >
@@ -164,7 +164,11 @@ const Header= function() {
                             </div>
                           </div>
                         )}
-                      </div>
+                      </div> */}
+                      <NavLink to="/">
+                      Home
+                      <span className='lines'></span>
+                      </NavLink>
                     </div>
                     <div className='navbar-item'>
                       <div ref={ref1}>
@@ -247,7 +251,7 @@ const Header= function() {
 
                 <Breakpoint xl>
                   <div className='menu'>
-                    <div className='navbar-item'>
+                    {/* <div className='navbar-item'>
                         <div ref={ref}>
                           <div className="dropdown-custom dropdown-toggle btn" 
                              onMouseEnter={handleBtnClick} onMouseLeave={closeMenu}>
@@ -265,6 +269,12 @@ const Header= function() {
                           </div>
                           
                         </div>
+                    </div> */}
+                    <div className='navbar-item'>
+                      <NavLink to="/">
+                      Home
+                      <span className='lines'></span>
+                      </NavLink>
                     </div>
                     <div className='navbar-item'>
                       <div ref={ref1}>
